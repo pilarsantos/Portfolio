@@ -1,0 +1,173 @@
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { Box, Typography, TextField, type Theme } from "@mui/material";
+import { GradientButton } from "../ui/GradientButton";
+import SendIcon from "@mui/icons-material/Send";
+import { motion, type Variants } from "framer-motion";
+import { useTranslation } from "react-i18next";
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15 },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring", stiffness: 60 },
+  },
+};
+
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+const inputSx = {
+  "& .MuiOutlinedInput-root": {
+    color: (theme: Theme) => theme.palette.text.primary,
+    "& fieldset": {
+      borderColor: "#bf26d368",
+    },
+    "&:hover fieldset": {
+      borderColor: "#bf26d3aa",
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: "#b163ff",
+    },
+  },
+  "& .MuiInputLabel-root": {
+    color: (theme: Theme) => theme.palette.text.secondary,
+    "&.Mui-focused": {
+      color: "#b163ff",
+    },
+  },
+};
+
+export const Contact = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">(
+    "idle",
+  );
+  const { t } = useTranslation();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        formRef.current!,
+        PUBLIC_KEY,
+      );
+      setStatus("ok");
+      formRef.current?.reset();
+    } catch {
+      setStatus("error");
+    }
+  };
+
+  return (
+    <motion.div variants={containerVariants} initial="hidden" animate="visible">
+      <Box
+        component="form"
+        ref={formRef}
+        onSubmit={handleSubmit}
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "24px",
+          maxWidth: "600px",
+          margin: "0 auto",
+          px: { xs: 2, md: 0 },
+          py: 6,
+        }}
+      >
+        <motion.div variants={itemVariants}>
+          <Typography
+            sx={{
+              fontFamily: "'Playfair Display', serif",
+              fontWeight: 800,
+              fontSize: "42px",
+              lineHeight: 1,
+              background: "linear-gradient(135deg, #b163ff, #ec4899, #f472b6)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              mb: 1,
+            }}
+          >
+            {t("contact.title")}
+          </Typography>
+          <Typography
+            sx={{ color: (theme: Theme) => theme.palette.text.secondary }}
+          >
+            {t("contact.subtitle")}
+          </Typography>
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <TextField
+            fullWidth
+            label={t("contact.name")}
+            name="from_name"
+            required
+            sx={inputSx}
+          />
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <TextField
+            fullWidth
+            label={t("contact.email")}
+            name="reply_to"
+            type="email"
+            required
+            sx={inputSx}
+          />
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <TextField
+            fullWidth
+            label={t("contact.message")}
+            name="message"
+            multiline
+            rows={5}
+            required
+            sx={inputSx}
+          />
+        </motion.div>
+
+        <motion.div variants={itemVariants}>
+          <GradientButton
+            type="submit"
+            disabled={status === "loading"}
+            endIcon={<SendIcon />}
+          >
+            {status === "loading" ? t("contact.sending") : t("contact.send")}
+          </GradientButton>
+        </motion.div>
+
+        {status === "ok" && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <Typography sx={{ color: "#4ade80" }}>
+              {t("contact.success")}
+            </Typography>
+          </motion.div>
+        )}
+        {status === "error" && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+            <Typography sx={{ color: "#f87171" }}>
+              {t("contact.error")}
+            </Typography>
+          </motion.div>
+        )}
+      </Box>
+    </motion.div>
+  );
+};
