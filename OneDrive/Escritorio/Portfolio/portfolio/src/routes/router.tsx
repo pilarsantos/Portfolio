@@ -4,47 +4,8 @@ import {
   createRouter,
   Outlet,
 } from "@tanstack/react-router";
-import { NavBar, AboutMe, Experience, Skills } from "../components";
-import { Box } from "@mui/material";
-import { Contact } from "../components/sections/Contact";
-
-const ExperiencePage = () => (
-  <Box
-    sx={{
-      px: { xs: 2, md: 6 },
-      py: 6,
-
-      maxWidth: "800px", 
-      margin: "0 auto",
-    }}
-  >
-    <Experience />
-  </Box>
-);
-const SkillsPage = () => (
-   <Box
-    sx={{
-      px: { xs: 2, md: 6 },
-      py: 6,
-      maxWidth: "800px", 
-      margin: "0 auto",
-    }}
-  >
-    <Skills />
-  </Box>
-);
-const ContactPage = () => (
-   <Box
-    sx={{
-      px: { xs: 2, md: 6 },
-      py: 6,
-      maxWidth: "800px", 
-      margin: "0 auto",
-    }}
-  >
-    <Contact />
-  </Box>
-);
+import { NavBar, AboutMe} from "../components";
+import { ExperiencePage, SkillsPage, ContactPage } from "../pages";
 
 const rootRoute = createRootRoute({
   component: () => (
