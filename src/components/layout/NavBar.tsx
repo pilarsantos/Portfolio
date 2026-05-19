@@ -2,9 +2,7 @@ import {
   Toolbar,
   AppBar,
   Button,
-  Switch,
   Box,
-  Typography,
   useMediaQuery,
   useTheme,
   List,
@@ -21,6 +19,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import MenuIcon from "@mui/icons-material/Menu";
 import { ButtonGroup } from "../ui/ButtonGroup";
+import { LanguageComponent } from "../ui/LanguageComponent";
 
 type AppPath = "/" | "/experience" | "/skills" | "/contact";
 
@@ -65,7 +64,7 @@ export const NavBar = () => {
           >
             <MenuIcon />
           </Button>
-          <Language  isMobile={isMobile} />
+          <LanguageComponent isMobile={isMobile} />
           <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
             <Box
               sx={{
@@ -87,38 +86,7 @@ export const NavBar = () => {
                         setOpen(false);
                       }}
                       disableRipple
-                      sx={{
-                        position: "relative",
-                        minWidth: 0,
-                        textTransform: "none",
-                        fontSize: "13px",
-                        color: isActive
-                          ? (theme: Theme) => theme.palette.text.primary
-                          : (theme: Theme) => theme.palette.text.secondary,
-                        transition: "color 0.2s ease",
-
-                        "&::after": {
-                          content: '""',
-                          position: "absolute",
-                          bottom: 0,
-                          left: 0,
-                          width: "100%",
-                          height: "2px",
-                          background:
-                            "linear-gradient(90deg, transparent, #b163ff, #ec4899, transparent)",
-                          transform: isActive ? "scaleX(1)" : "scaleX(0)",
-                          transition:
-                            "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                        },
-
-                        "&:hover": {
-                          background: "transparent",
-                          color: "#f0eaffd7",
-                          "&::after": {
-                            transform: "scaleX(1)",
-                          },
-                        },
-                      }}
+                      sx={navButtonSx(isActive, "15px")}
                     >
                       {label}
                     </ListItemButton>
@@ -156,102 +124,46 @@ export const NavBar = () => {
                 key={path}
                 onClick={() => navigate({ to: path as NavigateOptions["to"] })}
                 disableRipple
-                sx={{
-                  position: "relative",
-                  minWidth: 0,
-                  textTransform: "none",
-                  fontSize: "15px",
-                  color: isActive
-                    ? (theme: Theme) => theme.palette.text.primary
-                    : (theme: Theme) => theme.palette.text.secondary,
-                  transition: "color 0.2s ease",
-
-                  "&::after": {
-                    content: '""',
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    width: "100%",
-                    height: "2px",
-                    background:
-                      "linear-gradient(90deg, transparent, #b163ff, #ec4899, transparent)",
-                    transform: isActive ? "scaleX(1)" : "scaleX(0)",
-                    transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                  },
-
-                  "&:hover": {
-                    background: "transparent",
-                    color: "#f0eaffd7",
-                    "&::after": {
-                      transform: "scaleX(1)",
-                    },
-                  },
-                }}
+                sx={navButtonSx(isActive, "15px")}
               >
                 {label}
               </Button>
             );
           })}
 
-          <Language isMobile={isMobile} />
+          <LanguageComponent isMobile={isMobile} />
         </Toolbar>
       )}
     </AppBar>
   );
 };
 
-const Language = ({ isMobile }: { isMobile: boolean }) => {
-  const { i18n } = useTranslation();
-  const isEnglish = i18n.language === "en";
-  return (
-    <Box sx={{ ml: "12px", display: "flex", alignItems: "center" }}>
-      <Typography
-        variant="body2"
-        sx={{
-          fontSize: isMobile ? "13px" : "15px",
-          fontWeight: 600,
-          color: isEnglish
-            ? (theme: Theme) => theme.palette.primary.light
-            : (theme: Theme) => theme.palette.text.secondary,
-          transition: "color 0.3s ease",
-        }}
-      >
-        ENG
-      </Typography>
-      <Switch
-        checked={!isEnglish}
-        onChange={(e) => i18n.changeLanguage(e.target.checked ? "es" : "en")}
-        sx={{
-          "& .MuiSwitch-switchBase": {
-            color: (theme: Theme) => theme.palette.custom.cyanDark,
-          },
-          "& .MuiSwitch-track": {
-            backgroundColor: (theme: Theme) => theme.palette.custom.cyanDark,
-            opacity: "60%",
-          },
-          "& .MuiSwitch-switchBase.Mui-checked": {
-            color: (theme: Theme) => theme.palette.custom.magenta,
-          },
+const navButtonSx = (isActive: boolean, fontSize: string) => ({
+  position: "relative",
+  minWidth: 0,
+  textTransform: "none",
+  fontSize,
+  color: isActive
+    ? (theme: Theme) => theme.palette.text.primary
+    : (theme: Theme) => theme.palette.text.secondary,
+  transition: "color 0.2s ease",
 
-          "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-            backgroundColor: (theme: Theme) => theme.palette.custom.magenta,
-            opacity: "60%",
-          },
-        }}
-      ></Switch>
-      <Typography
-        variant="body2"
-        sx={{
-          fontSize: isMobile ? "13px" : "15px",
-          fontWeight: 600,
-          color: !isEnglish
-            ? (theme: Theme) => theme.palette.primary.light
-            : (theme: Theme) => theme.palette.text.secondary,
-          transition: "color 0.3s ease",
-        }}
-      >
-        ES
-      </Typography>
-    </Box>
-  );
-};
+  "&::after": {
+    content: '""',
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    height: "2px",
+    background:
+      "linear-gradient(90deg, transparent, #b163ff, #ec4899, transparent)",
+    transform: isActive ? "scaleX(1)" : "scaleX(0)",
+    transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+  },
+
+  "&:hover": {
+    background: "transparent",
+    color: "#f0eaffd7",
+    "&::after": { transform: "scaleX(1)" },
+  },
+});

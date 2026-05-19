@@ -35,7 +35,7 @@ export const Contact = () => {
   );
   const { t } = useTranslation();
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.SubmitEvent) => {
     e.preventDefault();
     setStatus("loading");
     try {
@@ -132,7 +132,7 @@ export const Contact = () => {
 
         {status === "ok" && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <Typography sx={{ color: "#4adec8" }}>
+            <Typography sx={{ color: (theme: Theme) => theme.palette.custom.cyan }}>
               {t("contact.success")}
             </Typography>
           </motion.div>
