@@ -64,6 +64,8 @@ export const NavBar = () => {
           >
             <MenuIcon />
           </Button>
+
+          <Language />
           <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
             <Box sx={{ width: 250 }}>
               <List>
@@ -116,8 +118,6 @@ export const NavBar = () => {
               </List>
             </Box>
           </Drawer>
-          
-      <Language />
         </Toolbar>
       ) : (
         <Toolbar
@@ -171,8 +171,8 @@ export const NavBar = () => {
               </Button>
             );
           })}
-          
-      <Language />
+
+          <Language />
         </Toolbar>
       )}
     </AppBar>
