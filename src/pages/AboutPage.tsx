@@ -1,8 +1,8 @@
-import { Contact } from "../components";
+import { AboutMe } from "../components";
 import { PageContainer } from "../components/ui/Wrapper";
 
-export const ContactPage = () => (
+export const AboutPage = () => (
   <PageContainer>
-    <Contact />
+    <AboutMe />
   </PageContainer>
 );

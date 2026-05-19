@@ -1,19 +1,11 @@
-import {
-  Chip,
-  Typography,
-  Grid,
-  Box,
-  IconButton,
-  type Theme,
-} from "@mui/material";
+import { Chip, Typography, Grid, Box, type Theme } from "@mui/material";
 import CircleIcon from "@mui/icons-material/Circle";
 import { AnimatedPortrait } from "../ui/AnimatedPortrait";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import DownloadIcon from "@mui/icons-material/Download";
-import { GradientButton } from "../ui/GradientButton";
 import { motion, type Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { ButtonGroup } from "../ui/ButtonGroup";
+import { GradientButton } from "../ui/GradientButton";
+import DownloadIcon from "@mui/icons-material/Download";
 
 const MotionGrid = motion.create(Grid);
 
@@ -48,12 +40,7 @@ export const AboutMe = () => {
       initial="hidden"
       animate="visible"
       container
-      spacing={4}
       sx={{
-        px: { xs: 2, md: 6 },
-        py: 6,
-        maxWidth: "1300px",
-        margin: "0 auto",
         minHeight: "85vh",
         alignItems: "center",
       }}
@@ -137,42 +124,7 @@ export const AboutMe = () => {
             >
               {t("about.downloadCv")}
             </GradientButton>
-            <IconButton
-              href="https://www.linkedin.com/in/pilar-santos-69b890256"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                color: (theme: Theme) => theme.palette.primary.main,
-                border: "1px solid #bf26d368",
-                backgroundColor: "#bf26d319",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  backgroundColor: "#bf26d333",
-                  color: (theme: Theme) => theme.palette.secondary.main,
-                  transform: "translateY(-2px)",
-                },
-              }}
-            >
-              <LinkedInIcon />
-            </IconButton>
-            <IconButton
-              href="https://github.com/pilarsantos"
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                color: (theme: Theme) => theme.palette.primary.main,
-                border: "1px solid #bf26d368",
-                backgroundColor: "#bf26d319",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  backgroundColor: "#bf26d333",
-                  color: (theme: Theme) => theme.palette.secondary.main,
-                  transform: "translateY(-2px)",
-                },
-              }}
-            >
-              <GitHubIcon />
-            </IconButton>
+            <ButtonGroup />
           </Box>
         </motion.div>
       </Grid>

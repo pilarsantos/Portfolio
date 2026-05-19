@@ -20,6 +20,7 @@ import {
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import MenuIcon from "@mui/icons-material/Menu";
+import { ButtonGroup } from "../ui/ButtonGroup";
 
 type AppPath = "/" | "/experience" | "/skills" | "/contact";
 
@@ -67,7 +68,14 @@ export const NavBar = () => {
 
           <Language />
           <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
-            <Box sx={{ width: 250 }}>
+            <Box
+              sx={{
+                width: 250,
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+              }}
+            >
               <List>
                 {navItems.map(({ label, path }) => {
                   const isActive = pathname === path;
@@ -117,6 +125,18 @@ export const NavBar = () => {
                   );
                 })}
               </List>
+              <Box
+                sx={{
+                  mt: "auto",
+                  py: "16px",
+                  display: "flex",
+                  gap: "16px",
+                  borderTop: "1px solid rgba(217, 70, 239, 0.2)",
+                  justifyContent: "center",
+                }}
+              >
+                <ButtonGroup />
+              </Box>
             </Box>
           </Drawer>
         </Toolbar>

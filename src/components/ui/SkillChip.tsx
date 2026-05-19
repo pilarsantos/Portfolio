@@ -8,9 +8,18 @@ interface SkillChipProps {
   borderColor: string;
   backgroundColor: string;
   icon: ReactNode;
+  progress: number;
 }
 
-export const SkillChip = ({ label, subLabel, color, borderColor, backgroundColor, icon }: SkillChipProps) => {
+export const SkillChip = ({
+  label,
+  subLabel,
+  color,
+  borderColor,
+  backgroundColor,
+  icon,
+  progress,
+}: SkillChipProps) => {
   return (
     <Box
       sx={{
@@ -33,16 +42,48 @@ export const SkillChip = ({ label, subLabel, color, borderColor, backgroundColor
         },
       }}
     >
-      <Box sx={{ color: color, display: "flex", fontSize: "20px" }}>
-        {icon}
-      </Box>
-      <Box sx={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-        <Typography sx={{ color: color, fontSize: { xs: "15px", md: "18px", lg: "20px" }, fontWeight: 500, lineHeight: 1 }}>
-          {label}
-        </Typography>
-        <Typography sx={{ color: alpha(color, 0.6), fontSize: { xs: "12px", md: "15px", lg: "17px" }, lineHeight: 1 }}>
-          {subLabel}
-        </Typography>
+      <Box sx={{ color: color, display: "flex", fontSize: "20px" }}>{icon}</Box>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: "12px", width:"100%" }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+          <Typography
+            sx={{
+              color: color,
+              fontSize: { xs: "15px", md: "18px", lg: "20px" },
+              fontWeight: 500,
+              lineHeight: 1,
+            }}
+          >
+            {label}
+          </Typography>
+          <Typography
+            sx={{
+              color: alpha(color, 0.6),
+              fontSize: { xs: "12px", md: "15px", lg: "17px" },
+              lineHeight: 1,
+            }}
+          >
+            {subLabel}
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            width: "100%",
+            height: "4px",
+              borderRadius: "4px",
+            backgroundColor: alpha(color, 0.2),
+          }}
+        >
+          <Box
+            sx={{
+              backgroundColor: color,
+              width: `${progress}%`,
+              height: "100%",
+              borderRadius: "4px",
+              transition: "width 0.6s ease",
+            }}
+          />
+        </Box>
       </Box>
     </Box>
   );

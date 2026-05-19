@@ -11,9 +11,13 @@ export const en = {
     cvFilename: "CV_Pilar_Santos_EN.pdf",
     downloadCv: "Download CV",
     description:
-      "I am a Higher Technician in Multiplatform Application Development (DAM) with experience in technologies such as Java, JavaFX, Spring Boot and React, building both desktop applications and web projects. I really enjoy learning from the teams I work with and taking on challenges that help me grow. I am looking for a company where I can contribute from day one and continue developing as a software developer.",
+      "I am a Junior Software Engineer with experience in technologies such as Java, JavaFX, Spring Boot and React, building both desktop applications and web projects. I really enjoy learning from the teams I work with and taking on challenges that help me grow. I am looking for a company where I can contribute from day one and continue developing as a software developer.",
   },
   experience: {
+    title:{
+      experience: "Experience",
+      education: "Education"
+    },
     job: {
       title: "TP ICAP · Madrid",
       role: "Junior Software Developer",
@@ -23,14 +27,14 @@ export const en = {
     },
     education: {
       title: "IES Lázaro Cárdenas",
-      role: "Vocational Degree · DAM - Multiplatform App Dev",
+      role: "Software Degree · Multiplatform App Dev",
       description:
         "Full-stack development focus: Java, Spring Boot, HTML | CSS | javascript, Kotlin & mobile development and relational databases.",
-      date: "2024 - 2026",
+      date: "SEP 2024 - MAR 2026",
     },
     burofreeAiInternship: {
       title: "Burofree AI",
-      role: "Intern",
+      role: "Intern · Software Developer",
       description:
         "ERP systems and web development. Full cycle: configuration, management and usage of ERP tools, combined with frontend development.",
       date: "MAY 2025 - JUN 2025",
@@ -45,6 +49,6 @@ export const en = {
     send: "Send",
     sending: "Sending...",
     success: "Message sent! I'll get back to you soon.",
-    error: "Something went wrong, please try again.",
+    error: "Something went wrong. Please try again or contact me directly using the email button or from the homepage.",
   },
 } as const;

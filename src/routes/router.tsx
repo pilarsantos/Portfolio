@@ -4,8 +4,8 @@ import {
   createRouter,
   Outlet,
 } from "@tanstack/react-router";
-import { NavBar, AboutMe} from "../components";
-import { ExperiencePage, SkillsPage, ContactPage } from "../pages";
+import { NavBar} from "../components";
+import { ExperiencePage, SkillsPage, ContactPage, AboutPage } from "../pages";
 
 const rootRoute = createRootRoute({
   component: () => (
@@ -19,7 +19,7 @@ const rootRoute = createRootRoute({
 const indexRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: "/",
-  component: () => <AboutMe />,
+  component: AboutPage,
 });
 
 const experienceRoute = createRoute({
