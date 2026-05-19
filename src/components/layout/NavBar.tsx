@@ -65,7 +65,6 @@ export const NavBar = () => {
           >
             <MenuIcon />
           </Button>
-
           <Language />
           <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
             <Box
@@ -74,6 +73,7 @@ export const NavBar = () => {
                 height: "100%",
                 display: "flex",
                 flexDirection: "column",
+                fontFamily: "'Space Grotesk', sans-serif",
               }}
             >
               <List>
