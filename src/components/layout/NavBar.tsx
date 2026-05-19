@@ -65,7 +65,7 @@ export const NavBar = () => {
           >
             <MenuIcon />
           </Button>
-          <Language />
+          <Language  isMobile={isMobile} />
           <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
             <Box
               sx={{
@@ -160,7 +160,7 @@ export const NavBar = () => {
                   position: "relative",
                   minWidth: 0,
                   textTransform: "none",
-                  fontSize: "13px",
+                  fontSize: "15px",
                   color: isActive
                     ? (theme: Theme) => theme.palette.text.primary
                     : (theme: Theme) => theme.palette.text.secondary,
@@ -193,14 +193,14 @@ export const NavBar = () => {
             );
           })}
 
-          <Language />
+          <Language isMobile={isMobile} />
         </Toolbar>
       )}
     </AppBar>
   );
 };
 
-const Language = () => {
+const Language = ({ isMobile }: { isMobile: boolean }) => {
   const { i18n } = useTranslation();
   const isEnglish = i18n.language === "en";
   return (
@@ -208,7 +208,7 @@ const Language = () => {
       <Typography
         variant="body2"
         sx={{
-          fontSize: "13px",
+          fontSize: isMobile ? "13px" : "15px",
           fontWeight: 600,
           color: isEnglish
             ? (theme: Theme) => theme.palette.primary.light
@@ -242,7 +242,7 @@ const Language = () => {
       <Typography
         variant="body2"
         sx={{
-          fontSize: "13px",
+          fontSize: isMobile ? "13px" : "15px",
           fontWeight: 600,
           color: !isEnglish
             ? (theme: Theme) => theme.palette.primary.light

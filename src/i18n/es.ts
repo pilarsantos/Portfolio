@@ -22,15 +22,9 @@ export const es = {
       title: "TP ICAP · Madrid",
       role: "Desarrolladora de Software Junior",
       description:
-        "Herramientas internas de trading en un entorno financiero. Ciclo completo de desarrollo: diseño, implementación, pruebas y optimización usando JavaFX, Java, Spring, React, TypeScript y MySQL.",
+        "Herramientas internas de trading en un entorno financiero. Ciclo completo de desarrollo: diseño, implementación, pruebas y optimización usando JavaFX, Java, Spring, React, TypeScript y MySQL.\nHe desarrollado una aplicación de escritorio para la gestión de inventario utilizando JavaFX, JDBC y MySQL, y he participado en la corrección de errores y la mejora de interfaces de usuario en aplicaciones web internas.",
       date: "MAR 2026 - ACTUALIDAD",
-    },
-    education: {
-      title: "IES Lázaro Cárdenas",
-      role: "Ciclo Formativo Superior · DAM - Desarrollo de Aplicaciones Multiplataforma",
-      description:
-        "Enfoque full-stack: Java, Spring Boot, HTML | CSS | javascript, Kotlin & desarrollo móvil y bases de datos relacionales.",
-      date: "SEP 2024 - MAR 2026",
+      href:"App JavaFX de Gestión de Inventario"
     },
     burofreeAiInternship: {
       title: "Burofree AI",
@@ -38,6 +32,22 @@ export const es = {
       description:
         "Sistemas ERP y desarrollo web. Ciclo completo: configuración, gestión y uso de herramientas ERP, combinadas con desarrollo frontend.",
       date: "MAY 2025 - JUN 2025",
+    },
+    education: {
+      title: "IES Lázaro Cárdenas",
+      role: "Ciclo Formativo Superior · DAM - Desarrollo de Aplicaciones Multiplataforma",
+      description:
+        "Enfoque full-stack: Java, Spring Boot, HTML | CSS | javascript, Kotlin & desarrollo móvil y bases de datos relacionales.",
+      date: "SEP 2024 - MAR 2026",
+      href:"Trabajo de Fin de Grado | App Móvil en Kotlin"
+    },
+    springCourse: {
+      title: "Udemy",
+      role: "Spring & Hibernate Cours",
+      description:
+        "Curso de Java Spring e Hibernate, centrado en desarrollo backend, APIs REST e integración de bases de datos.",
+      date: "MAR 2026 - MAR 2026",
+      href:"Curso de Spring Boot"
     },
   },
   contact: {

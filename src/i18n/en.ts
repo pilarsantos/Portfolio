@@ -22,15 +22,9 @@ export const en = {
       title: "TP ICAP · Madrid",
       role: "Junior Software Developer",
       description:
-        "Internal trading tools in a financial environment. Full dev cycle: design, implementation, testing & optimisation using JavaFX, Java, Spring, React, TypeScript & MySQL.",
+        "Internal trading tools in a financial environment. Full dev cycle: design, implementation, testing & optimisation using JavaFX, Java, Spring, React, TypeScript & MySQL.\nDeveloped a desktop inventory management app using JavaFX, JDBC & MySQL, and contributed to bug fixing & UI improvements on internal web applications",
       date: "MAR 2026 - NOW",
-    },
-    education: {
-      title: "IES Lázaro Cárdenas",
-      role: "Software Degree · Multiplatform App Dev",
-      description:
-        "Full-stack development focus: Java, Spring Boot, HTML | CSS | javascript, Kotlin & mobile development and relational databases.",
-      date: "SEP 2024 - MAR 2026",
+      href:"Inventory Management JavaFX app"
     },
     burofreeAiInternship: {
       title: "Burofree AI",
@@ -38,6 +32,22 @@ export const en = {
       description:
         "ERP systems and web development. Full cycle: configuration, management and usage of ERP tools, combined with frontend development.",
       date: "MAY 2025 - JUN 2025",
+    },
+    education: {
+      title: "IES Lázaro Cárdenas",
+      role: "Software Degree · Multiplatform App Dev",
+      description:
+        "Full-stack development focus: Java, Spring Boot, HTML | CSS | javascript, Kotlin & mobile development and relational databases.",
+      date: "SEP 2024 - MAR 2026",
+      href:"Final Year Project | Kotlin Mobile App"
+    },
+    springCourse: {
+      title: "Udemy",
+      role: "Spring & Hibernate Course",
+      description:
+        "Java Spring and Hibernate course, focusing on backend development, REST APIs and database integration.",
+      date: "MAR 2026 - MAR 2026",
+      href:"Spring Boot Course"
     },
   },
   contact: {

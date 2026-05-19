@@ -1,12 +1,14 @@
 import { alpha, Box, Card, Typography, type Theme } from "@mui/material";
 
 interface ExperienceCardProps {
-  gradient: string;
-  title: string;
-  role: string;
-  description: string;
-  date: string;
-  roleColor: string;
+  gradient: string
+  title: string
+  role: string
+  description: string
+  date: string
+  roleColor: string
+  href?: string
+  hrefLabel?: string
 }
 
 export const ExperienceCard = ({
@@ -16,6 +18,8 @@ export const ExperienceCard = ({
   description,
   date,
   roleColor,
+  href,
+  hrefLabel,
 }: ExperienceCardProps) => {
   return (
     <Card
@@ -50,7 +54,7 @@ export const ExperienceCard = ({
           <Typography
             sx={{
               color: (theme: Theme) => theme.palette.primary.light,
-              fontSize: { xs: "18px", md: "21px", lg: "23px" },
+              fontSize: {md: "18px", lg: "20px" },
             }}
           >
             {title}
@@ -59,24 +63,39 @@ export const ExperienceCard = ({
             sx={{
               color: roleColor,
               fontWeight: "bold",
-              fontSize: { xs: "15px", md: "18px", lg: "20px" },
+            fontSize: {md: "15px", lg: "17px" },
             }}
           >
             {role}
           </Typography>
-          <Typography
-            sx={{
-              color: (theme: Theme) => theme.palette.text.secondary,
-              fontSize: { xs: "15px", md: "18px", lg: "20px" },
-            }}
-          >
-            {description}
-          </Typography>
+          {description.split("\n").map((line, i) => (
+            <Typography
+              sx={{
+                color: (theme: Theme) => theme.palette.text.secondary,
+            fontSize: {md: "15px", lg: "17px" },
+              }}
+              key={i}
+            >
+              {line}
+              
+            </Typography>
+          ))}
+          {href && (
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ color: "#06b6d4", textDecoration: "underline", fontFamily: "'Space Grotesk', sans-serif"}}
+                >
+                  <br />
+                  {hrefLabel}
+                </a>
+              )}
         </Box>
         <Typography
           sx={{
             color: (theme: Theme) => theme.palette.text.secondary,
-            fontSize: { xs: "12px", md: "15px", lg: "17px" },
+            fontSize: { xs: "12px", lg: "15px"},
             ml: "auto",
             flexShrink: 0,
             whiteSpace: "nowrap",
