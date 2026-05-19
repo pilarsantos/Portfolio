@@ -49,10 +49,17 @@ export const AboutMe = () => {
       animate="visible"
       container
       spacing={4}
-      sx={{ px: { xs: 2, md: 6 }, py: 6, maxWidth: "90%", margin: "0 auto" }}
+      sx={{
+        px: { xs: 2, md: 6 },
+        py: 6,
+        maxWidth: "1300px",
+        margin: "0 auto",
+        minHeight: "85vh",
+        alignItems: "center",
+      }}
     >
       <Grid
-        size={{ xs: 12, md: 6 }}
+        size={{ xs: 12, md: 7 }}
         sx={{ textAlign: { xs: "center", md: "left" } }}
       >
         <motion.div variants={otherVariants}>
@@ -107,8 +114,9 @@ export const AboutMe = () => {
             sx={{
               my: "12px",
               color: (theme: Theme) => theme.palette.text.secondary,
-              maxWidth: "500px",
+              maxWidth: "600px",
               mx: { xs: "auto", md: 0 },
+              fontSize: { xs: "15px", md: "18px", lg: "20px" },
             }}
           >
             {t("about.description")}
@@ -169,10 +177,15 @@ export const AboutMe = () => {
         </motion.div>
       </Grid>
       <Grid
-        size={{ xs: 12, md: 6 }}
+        size={{ xs: 12, md: 5 }}
         sx={{ display: "flex", justifyContent: "center" }}
       >
-        <Box sx={{ width: { xs: "60%", sm: "45%", md: "100%", lg: "55%" } }}>
+        <Box
+          sx={{
+            width: { xs: "70%", sm: "50%", md: "100%" },
+            maxWidth: "450px",
+          }}
+        >
           <AnimatedPortrait />
         </Box>
       </Grid>

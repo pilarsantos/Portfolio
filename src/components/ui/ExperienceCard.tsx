@@ -50,6 +50,7 @@ export const ExperienceCard = ({
           <Typography
             sx={{
               color: (theme: Theme) => theme.palette.primary.light,
+              fontSize: { xs: "18px", md: "21px", lg: "23px" },
             }}
           >
             {title}
@@ -58,7 +59,7 @@ export const ExperienceCard = ({
             sx={{
               color: roleColor,
               fontWeight: "bold",
-              fontSize: "small",
+              fontSize: { xs: "15px", md: "18px", lg: "20px" },
             }}
           >
             {role}
@@ -66,7 +67,7 @@ export const ExperienceCard = ({
           <Typography
             sx={{
               color: (theme: Theme) => theme.palette.text.secondary,
-              fontSize: "small",
+              fontSize: { xs: "15px", md: "18px", lg: "20px" },
             }}
           >
             {description}
@@ -75,7 +76,7 @@ export const ExperienceCard = ({
         <Typography
           sx={{
             color: (theme: Theme) => theme.palette.text.secondary,
-            fontSize: "12px",
+            fontSize: { xs: "12px", md: "15px", lg: "17px" },
             ml: "auto",
             flexShrink: 0,
             whiteSpace: "nowrap",

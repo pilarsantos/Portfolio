@@ -5,6 +5,11 @@ import {
   Switch,
   Box,
   Typography,
+  useMediaQuery,
+  useTheme,
+  List,
+  Drawer,
+  ListItemButton,
 } from "@mui/material";
 import type { Theme } from "@mui/material";
 import {
@@ -12,7 +17,9 @@ import {
   useNavigate,
   type NavigateOptions,
 } from "@tanstack/react-router";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import MenuIcon from "@mui/icons-material/Menu";
 
 type AppPath = "/" | "/experience" | "/skills" | "/contact";
 
@@ -20,6 +27,9 @@ export const NavBar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [open, setOpen] = useState(false);
 
   const navItems: { label: string; path: AppPath }[] = [
     { label: t("nav.about"), path: "/" },
@@ -40,58 +50,131 @@ export const NavBar = () => {
         px: { xs: 2, md: 6 },
       }}
     >
-      <Toolbar
-        sx={{
-          display: "flex",
-          marginLeft: "auto",
-          gap: "12px",
-          alignItems: "stretch",
-        }}
-      >
-        {navItems.map(({ label, path }) => {
-          const isActive = pathname === path;
-          return (
-            <Button
-              key={path}
-              onClick={() => navigate({ to: path as NavigateOptions["to"] })}
-              disableRipple
-              sx={{
-                position: "relative",
-                minWidth: 0,
-                textTransform: "none",
-                fontSize: "13px",
-                color: isActive
-                  ? (theme: Theme) => theme.palette.text.primary
-                  : (theme: Theme) => theme.palette.text.secondary,
-                transition: "color 0.2s ease",
-                "&::after": {
-                  content: '""',
-                  position: "absolute",
-                  bottom: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "2px",
-                  background:
-                    "linear-gradient(90deg, transparent, #b163ff, #ec4899, transparent)",
-                  transform: isActive ? "scaleX(1)" : "scaleX(0)",
-                  transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                },
+      {isMobile ? (
+        <Toolbar
+          sx={{
+            display: "flex",
+            gap: "12px",
+            alignItems: "stretch",
+          }}
+        >
+          <Button
+            onClick={() => setOpen(true)}
+            sx={{ minWidth: 0, mr: "auto" }}
+          >
+            <MenuIcon />
+          </Button>
+          <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+            <Box sx={{ width: 250 }}>
+              <List>
+                {navItems.map(({ label, path }) => {
+                  const isActive = pathname === path;
+                  return (
+                    <ListItemButton
+                      key={path}
+                      onClick={() =>
+                        navigate({ to: path as NavigateOptions["to"] })
+                      }
+                      disableRipple
+                      sx={{
+                        position: "relative",
+                        minWidth: 0,
+                        textTransform: "none",
+                        fontSize: "13px",
+                        color: isActive
+                          ? (theme: Theme) => theme.palette.text.primary
+                          : (theme: Theme) => theme.palette.text.secondary,
+                        transition: "color 0.2s ease",
 
-                "&:hover": {
-                  background: "transparent",
-                  color: "#f0eaffd7",
+                        "&::after": {
+                          content: '""',
+                          position: "absolute",
+                          bottom: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "2px",
+                          background:
+                            "linear-gradient(90deg, transparent, #b163ff, #ec4899, transparent)",
+                          transform: isActive ? "scaleX(1)" : "scaleX(0)",
+                          transition:
+                            "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                        },
+
+                        "&:hover": {
+                          background: "transparent",
+                          color: "#f0eaffd7",
+                          "&::after": {
+                            transform: "scaleX(1)",
+                          },
+                        },
+                      }}
+                    >
+                      {label}
+                    </ListItemButton>
+                  );
+                })}
+              </List>
+            </Box>
+          </Drawer>
+          
+      <Language />
+        </Toolbar>
+      ) : (
+        <Toolbar
+          sx={{
+            display: "flex",
+            marginLeft: "auto",
+            gap: "12px",
+            alignItems: "stretch",
+          }}
+        >
+          {navItems.map(({ label, path }) => {
+            const isActive = pathname === path;
+            return (
+              <Button
+                key={path}
+                onClick={() => navigate({ to: path as NavigateOptions["to"] })}
+                disableRipple
+                sx={{
+                  position: "relative",
+                  minWidth: 0,
+                  textTransform: "none",
+                  fontSize: "13px",
+                  color: isActive
+                    ? (theme: Theme) => theme.palette.text.primary
+                    : (theme: Theme) => theme.palette.text.secondary,
+                  transition: "color 0.2s ease",
+
                   "&::after": {
-                    transform: "scaleX(1)",
+                    content: '""',
+                    position: "absolute",
+                    bottom: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "2px",
+                    background:
+                      "linear-gradient(90deg, transparent, #b163ff, #ec4899, transparent)",
+                    transform: isActive ? "scaleX(1)" : "scaleX(0)",
+                    transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                   },
-                },
-              }}
-            >
-              {label}
-            </Button>
-          );
-        })}
-        <Language />
-      </Toolbar>
+
+                  "&:hover": {
+                    background: "transparent",
+                    color: "#f0eaffd7",
+                    "&::after": {
+                      transform: "scaleX(1)",
+                    },
+                  },
+                }}
+              >
+                {label}
+              </Button>
+            );
+          })}
+          
+      <Language />
+        </Toolbar>
+      )}
     </AppBar>
   );
 };
@@ -115,6 +198,7 @@ const Language = () => {
         ENG
       </Typography>
       <Switch
+        checked={!isEnglish}
         onChange={(e) => i18n.changeLanguage(e.target.checked ? "es" : "en")}
         sx={{
           "& .MuiSwitch-switchBase": {

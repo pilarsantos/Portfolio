@@ -1,9 +1,9 @@
 export const es = {
   nav: {
-    about: "sobre mí",
-    experience: "experiencia & educación",
-    skills: "habilidades",
-    contact: "contacto",
+    about: "Sobre Mí",
+    experience: "Experiencia & Educación",
+    skills: "Habilidades",
+    contact: "Contacto",
   },
   about: {
     chip: "Abierta a oportunidades · Madrid",

@@ -1,10 +1,11 @@
 import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Box, Typography, TextField, type Theme } from "@mui/material";
+import { Box, Typography, type Theme } from "@mui/material";
 import { GradientButton } from "../ui/GradientButton";
 import SendIcon from "@mui/icons-material/Send";
 import { motion, type Variants } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { StyledTextField } from "../ui/StyledTextField";
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -26,27 +27,6 @@ const itemVariants: Variants = {
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-const inputSx = {
-  "& .MuiOutlinedInput-root": {
-    color: (theme: Theme) => theme.palette.text.primary,
-    "& fieldset": {
-      borderColor: "#bf26d368",
-    },
-    "&:hover fieldset": {
-      borderColor: "#bf26d3aa",
-    },
-    "&.Mui-focused fieldset": {
-      borderColor: "#b163ff",
-    },
-  },
-  "& .MuiInputLabel-root": {
-    color: (theme: Theme) => theme.palette.text.secondary,
-    "&.Mui-focused": {
-      color: "#b163ff",
-    },
-  },
-};
 
 export const Contact = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -91,14 +71,14 @@ export const Contact = () => {
         <motion.div variants={itemVariants}>
           <Typography
             sx={{
+              display: "inline-block",
               fontFamily: "'Playfair Display', serif",
               fontWeight: 800,
-              fontSize: "42px",
+              fontSize: "58px",
               lineHeight: 1,
               background: "linear-gradient(135deg, #b163ff, #ec4899, #f472b6)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
-              mb: 1,
             }}
           >
             {t("contact.title")}
@@ -111,35 +91,32 @@ export const Contact = () => {
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <TextField
+          <StyledTextField
             fullWidth
             label={t("contact.name")}
             name="from_name"
             required
-            sx={inputSx}
           />
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <TextField
+          <StyledTextField
             fullWidth
             label={t("contact.email")}
             name="reply_to"
             type="email"
             required
-            sx={inputSx}
           />
         </motion.div>
 
         <motion.div variants={itemVariants}>
-          <TextField
+          <StyledTextField
             fullWidth
             label={t("contact.message")}
             name="message"
             multiline
             rows={5}
             required
-            sx={inputSx}
           />
         </motion.div>
 
@@ -155,14 +132,14 @@ export const Contact = () => {
 
         {status === "ok" && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <Typography sx={{ color: "#4ade80" }}>
+            <Typography sx={{ color: "#4adec8" }}>
               {t("contact.success")}
             </Typography>
           </motion.div>
         )}
         {status === "error" && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-            <Typography sx={{ color: "#f87171" }}>
+            <Typography sx={{ color: (theme: Theme) => theme.palette.secondary.light }}>
               {t("contact.error")}
             </Typography>
           </motion.div>

@@ -37,10 +37,10 @@ export const SkillChip = ({ label, subLabel, color, borderColor, backgroundColor
         {icon}
       </Box>
       <Box sx={{ display: "flex", flexDirection: "column", gap: "2px" }}>
-        <Typography sx={{ color: color, fontSize: "14px", fontWeight: 500, lineHeight: 1 }}>
+        <Typography sx={{ color: color, fontSize: { xs: "15px", md: "18px", lg: "20px" }, fontWeight: 500, lineHeight: 1 }}>
           {label}
         </Typography>
-        <Typography sx={{ color: alpha(color, 0.6), fontSize: "11px", lineHeight: 1 }}>
+        <Typography sx={{ color: alpha(color, 0.6), fontSize: { xs: "12px", md: "15px", lg: "17px" }, lineHeight: 1 }}>
           {subLabel}
         </Typography>
       </Box>

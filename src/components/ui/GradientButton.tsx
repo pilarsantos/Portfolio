@@ -33,7 +33,7 @@ export const GradientButton = ({
       type={type}
       disabled={disabled}
       sx={{
-        background: "linear-gradient(135deg, #c084fc, #ec4899)",
+        background: "linear-gradient(135deg, #b163ff, #ec4899)",
         textTransform: "none",
         fontWeight: 600,
         borderRadius: "8px",
