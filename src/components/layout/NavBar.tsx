@@ -190,7 +190,7 @@ const Language = () => {
         sx={{
           fontSize: "13px",
           fontWeight: 600,
-          color: !isEnglish
+          color: isEnglish
             ? (theme: Theme) => theme.palette.primary.light
             : (theme: Theme) => theme.palette.text.secondary,
           transition: "color 0.3s ease",
@@ -224,7 +224,7 @@ const Language = () => {
         sx={{
           fontSize: "13px",
           fontWeight: 600,
-          color: isEnglish
+          color: !isEnglish
             ? (theme: Theme) => theme.palette.primary.light
             : (theme: Theme) => theme.palette.text.secondary,
           transition: "color 0.3s ease",
