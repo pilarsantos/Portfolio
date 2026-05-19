@@ -37,7 +37,6 @@ export const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY);
     setStatus("loading");
     try {
       await emailjs.sendForm(

@@ -74,9 +74,10 @@ export const NavBar = () => {
                   return (
                     <ListItemButton
                       key={path}
-                      onClick={() =>
-                        navigate({ to: path as NavigateOptions["to"] })
-                      }
+                      onClick={() => {
+                        navigate({ to: path as NavigateOptions["to"] });
+                        setOpen(false);
+                      }}
                       disableRipple
                       sx={{
                         position: "relative",
