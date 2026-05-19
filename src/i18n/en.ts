@@ -25,8 +25,15 @@ export const en = {
       title: "IES Lázaro Cárdenas",
       role: "Vocational Degree · DAM - Multiplatform App Dev",
       description:
-        "Full-stack development focus: Java, Spring Boot, React, Kotlin, mobile development and relational databases.",
+        "Full-stack development focus: Java, Spring Boot, HTML | CSS | javascript, Kotlin & mobile development and relational databases.",
       date: "2024 - 2026",
+    },
+    burofreeAiInternship: {
+      title: "Burofree AI",
+      role: "Intern",
+      description:
+        "ERP systems and web development. Full cycle: configuration, management and usage of ERP tools, combined with frontend development.",
+      date: "MAY 2025 - JUN 2025",
     },
   },
   contact: {

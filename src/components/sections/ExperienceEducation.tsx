@@ -62,6 +62,16 @@ export const Experience = () => {
           roleColor={theme.palette.custom.cyan}
         />
       </motion.div>
+      <motion.div variants={cardVariants}>
+        <ExperienceCard
+          gradient="linear-gradient(180deg, #22d3ee, #4ADE80)"
+          title={t("experience.burofreeAiInternship.title")}
+          role={t("experience.burofreeAiInternship.role")}
+          description={t("experience.burofreeAiInternship.description")}
+          date={t("experience.burofreeAiInternship.date")}
+          roleColor="#4ADE80"
+        />
+      </motion.div>
     </MotionBox>
   );
 };

@@ -25,8 +25,15 @@ export const es = {
       title: "IES Lázaro Cárdenas",
       role: "Ciclo Formativo Superior · DAM - Desarrollo de Aplicaciones Multiplataforma",
       description:
-        "Enfoque full-stack: Java, Spring Boot, React, Kotlin, desarrollo móvil y bases de datos relacionales.",
+        "Enfoque full-stack: Java, Spring Boot, HTML | CSS | javascript, Kotlin & desarrollo móvil y bases de datos relacionales.",
       date: "2024 - 2026",
+    },
+    burofreeAiInternship: {
+      title: "Burofree AI",
+      role: "Prácticas",
+      description:
+        "Sistemas ERP y desarrollo web. Ciclo completo: configuración, gestión y uso de herramientas ERP, combinadas con desarrollo frontend.",
+      date: "MAY 2025 - JUN 2025",
     },
   },
   contact: {
