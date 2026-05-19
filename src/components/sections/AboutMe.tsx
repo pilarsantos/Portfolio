@@ -41,7 +41,7 @@ export const AboutMe = () => {
       animate="visible"
       container
       sx={{
-        minHeight: "85vh",
+        minHeight: "75vh",
         alignItems: "center",
       }}
     >
