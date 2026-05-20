@@ -19,3 +19,8 @@ body {
   background-repeat: no-repeat, no-repeat, repeat, repeat;
   background-attachment: fixed;
 }
+
+@font-face {
+  font-family: 'Athene';
+  src: url('/fonts/athene/Athene.otf') format('opentype');
+}

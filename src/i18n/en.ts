@@ -35,7 +35,7 @@ export const en = {
     },
     education: {
       title: "IES Lázaro Cárdenas",
-      role: "Software Engineering Degree · Multiplatform Appplication Development",
+      role: "Software Development Degree · Multiplatform Appplication Development",
       description:
         "Full-stack development focus: Java, Spring Boot, HTML | CSS | javascript, Kotlin & mobile development and relational databases.",
       date: "SEP 2024 - MAR 2026",

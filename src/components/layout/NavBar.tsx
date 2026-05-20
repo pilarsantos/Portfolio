@@ -43,10 +43,10 @@ export const NavBar = () => {
       position="sticky"
       elevation={0}
       sx={{
-        backgroundColor: "rgba(244, 17, 218, 0.09)",
+        backgroundColor: "#bf26d319",
         backdropFilter: "blur(10px)",
-        boxShadow: "0px 4px 20px rgba(217, 70, 239, 0.15)",
-        borderBottom: "1px solid rgba(217, 70, 239, 0.2)",
+        boxShadow: "0px 4px 20px #bf26d368",
+        borderBottom: "1px solid #bf26d368",
         px: { xs: 2, md: 6 },
       }}
     >

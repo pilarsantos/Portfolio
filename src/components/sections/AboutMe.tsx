@@ -70,10 +70,12 @@ export const AboutMe = () => {
         <motion.div variants={otherVariants}>
           <Typography
             sx={{
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'Athene',
               fontWeight: 800,
-              fontSize: "58px",
+              fontSize: "60px",
+              pr: "20px",
               lineHeight: 1,
+              letterSpacing: "2px",
               color: (theme: Theme) => theme.palette.primary.light,
             }}
           >
@@ -82,11 +84,13 @@ export const AboutMe = () => {
           <Typography
             sx={{
               display: "inline-block",
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'Athene',
               fontWeight: 800,
               fontStyle: "italic",
-              fontSize: "58px",
+              fontSize: "60px",
+              pr: "20px",
               lineHeight: 1,
+              letterSpacing: "2px",
               background: "linear-gradient(135deg, #b163ff, #ec4899, #f472b6)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",

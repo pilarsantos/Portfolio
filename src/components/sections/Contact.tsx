@@ -64,7 +64,7 @@ export const Contact = () => {
           gap: "24px",
           maxWidth: "600px",
           margin: "0 auto",
-          px: { xs: 2, md: 0 },
+          px: 2,
           py: 6,
         }}
       >
@@ -72,10 +72,12 @@ export const Contact = () => {
           <Typography
             sx={{
               display: "inline-block",
-              fontFamily: "'Playfair Display', serif",
+              fontFamily: 'Athene',
               fontWeight: 800,
-              fontSize: "58px",
+              fontSize: "60px",
+              pr: "20px",
               lineHeight: 1,
+              letterSpacing: "2px",
               background: "linear-gradient(135deg, #b163ff, #ec4899, #f472b6)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
